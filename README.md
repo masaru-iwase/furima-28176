@@ -29,18 +29,18 @@ Things you may want to cover:
 
 
 ## Usersテーブル
-| Column               | Type    | Options     |
-| mail_address         | string  | null: false |
-| nick_name            | string  | null: false |
-| user_id              | integer | null: false |
-| password             | string  | null: false |
-| full_width_name      | string  | null: false |
-| full_width_kana_name | string  | null: false |
-| birthdate            | integer | null: false |
+| Column                      | Type    | Options     |
+| mail_address                | string  | null: false |
+| nick_name                   | string  | null: false |
+| encrypted_password          | string  | null: false |
+| full_width_family_name      | string  | null: false |
+| full_width_first_name       | string  | null: false |
+| full_width_kana_family_name | string  | null: false |
+| full_width_kana_first_name  | string  | null: false |
+| date                        | integer | null: false |
 
 ### Association
-- has_many :selling_items
-- has_many :buying_items
+- has_many :items
 - has_many :comments
 - has_many :purchases
 - has_many :sending_destinations
@@ -82,12 +82,11 @@ Things you may want to cover:
 | city          | string     | null: false |
 | street        | string     | null: false |
 | building_name | string     | -           |
-| house_number  | string     | -           |
-| phone_number  | string     | -           |
+| house_number  | string     | null: false |
+| phone_number  | string     | null: false |
 
 ### Association
-- belongs_to :user
-- has_many   :purchases
+- belongs_to :purchase
 
 
 ## commentsテーブル 中間テーブル
@@ -103,12 +102,11 @@ Things you may want to cover:
 
 
 ## purchasesテーブル 中間テーブル
-| Column       | Type       | Options     |
-| item_id      | references | null: false |
-| uder_id      | references | null: false |
-| purchased_on | timestamp  | null: false |
+| Column       | Type       | Options                 |
+| item         | references | foreign_key :item, true |
+| user         | references | foreign_key :user, true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one    :sending_destination
+- has_one :sending_destination

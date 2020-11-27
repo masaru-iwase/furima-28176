@@ -43,41 +43,31 @@ Things you may want to cover:
 - has_many :items
 - has_many :comments
 - has_many :purchases
-- has_many :sending_destinations
 
 
 ## Itemsテーブル
 | Column             | Type       | Options           |
 | status             | string     | null: false       |
-| description        | string     | null: false       |
+| item_name          | string     | null: false       |
+| description        | text       | null: false       |
 | user_id            | references | foreign_key: true |
 | price              | integer    | null: false       |
-| currency           | integer    | null: false       |
-| condition_id       | integer    | active_hash       |
-| prefecture_id      | integer    | active_hash       |
-| delivery_charge_id | integer    | active_hash       |
-| shipping_date_id   | integer    | active_hash       |
+| currency           | integer    | -                 |
+| condition_id       | integer    | null: false       | ##active_hash##
+| prefecture_id      | integer    | null: false       | ##active_hash##
+| delivery_charge_id | integer    | null: false       | ##active_hash##
+| shipping_date_id   | integer    | null: false       | ##active_hash##
 
 ### Association
 - belongs_to :user
 - has_many   :comments
-- has_many   :categories
-- has_many   :brands
 - has_one    :purchase
-
-
-## Categoriesテーブル
-| Column | Type       | Options     |
-| name   | string     | null: false |
-
-### Association
-- has_many :items
 
 
 ## sending destinationsテーブル 
 | Column        | Type       | Options     |
 | uder_id       | references | null: false |
-| prefecture_id | integer    | active_hash |
+| prefecture_id | integer    | null: false | ##active_hash##
 | post_code     | string     | null: false |
 | city          | string     | null: false |
 | street        | string     | null: false |
@@ -102,9 +92,9 @@ Things you may want to cover:
 
 
 ## purchasesテーブル 中間テーブル
-| Column       | Type       | Options                 |
-| item         | references | foreign_key :item, true |
-| user         | references | foreign_key :user, true |
+| Column       | Type       | Options           |
+| item         | references | foreign_key: true |
+| user         | references | foreign_key: true |
 
 ### Association
 - belongs_to :user

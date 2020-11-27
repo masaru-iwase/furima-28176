@@ -30,14 +30,14 @@ Things you may want to cover:
 
 ## Usersテーブル
 | Column                      | Type    | Options     |
-| mail_address                | string  | null: false |
+| email                       | string  | null: false |
 | nick_name                   | string  | null: false |
 | encrypted_password          | string  | null: false |
-| full_width_family_name      | string  | null: false |
-| full_width_first_name       | string  | null: false |
-| full_width_kana_family_name | string  | null: false |
-| full_width_kana_first_name  | string  | null: false |
-| date                        | integer | null: false |
+| family_name                 | string  | null: false |
+| first_name                  | string  | null: false |
+| kana_family_name            | string  | null: false |
+| kana_first_name             | string  | null: false |
+| date                        | date    | null: false |
 
 ### Association
 - has_many :items
@@ -68,7 +68,7 @@ Things you may want to cover:
 
 ## Categoriesテーブル
 | Column | Type       | Options     |
-| Name   | string     | null: false |
+| name   | string     | null: false |
 
 ### Association
 - has_many :items

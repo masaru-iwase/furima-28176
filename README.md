@@ -29,15 +29,16 @@ Things you may want to cover:
 
 
 ## Usersテーブル
-| Column                      | Type    | Options     |
-| email                       | string  | null: false |
-| nick_name                   | string  | null: false |
-| encrypted_password          | string  | null: false |
-| family_name                 | string  | null: false |
-| first_name                  | string  | null: false |
-| kana_family_name            | string  | null: false |
-| kana_first_name             | string  | null: false |
-| birth_date                  | date    | null: false |
+| Column             | Type    | Options     |
+| ----               | ----    | ----        |
+| email              | string  | null: false |
+| nick_name          | string  | null: false |
+| encrypted_password | string  | null: false |
+| family_name        | string  | null: false |
+| first_name         | string  | null: false |
+| kana_family_name   | string  | null: false |
+| kana_first_name    | string  | null: false |
+| birth_date         | date    | null: false |
 
 ### Association
 - has_many :items
@@ -47,6 +48,7 @@ Things you may want to cover:
 
 ## Itemsテーブル
 | Column             | Type       | Options           |
+| ----               | ----       | ----              |
 | name               | string     | null: false       |
 | description        | text       | null: false       |
 | user               | references | foreign_key: true |
@@ -65,6 +67,7 @@ Things you may want to cover:
 
 ## sending destinationsテーブル 
 | Column        | Type       | Options           |
+| ----          | ----       | ----              |
 | purchase      | references | foreign_key: true |
 | prefecture_id | integer    | null: false       | ##active_hash##
 | post_code     | string     | null: false       |
@@ -79,6 +82,7 @@ Things you may want to cover:
 
 ## commentsテーブル 中間テーブル
 | Column     | Type       | Options          |
+| ----       | ----       | ----             |
 | item       | references | oreign_key: true |
 | user       | references | oreign_key: true |
 | comment    | text       | null: false      |
@@ -91,6 +95,7 @@ Things you may want to cover:
 
 ## purchasesテーブル 中間テーブル
 | Column       | Type       | Options           |
+| ----         | ----       | ----              |
 | item         | references | foreign_key: true |
 | user         | references | foreign_key: true |
 

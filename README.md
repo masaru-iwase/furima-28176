@@ -50,13 +50,13 @@ Things you may want to cover:
 | status             | string     | null: false       |
 | item_name          | string     | null: false       |
 | description        | text       | null: false       |
-| user_id            | references | foreign_key: true |
+| user               | references | foreign_key: true |
 | price              | integer    | null: false       |
-| currency           | integer    | -                 |
 | condition_id       | integer    | null: false       | ##active_hash##
 | prefecture_id      | integer    | null: false       | ##active_hash##
 | delivery_charge_id | integer    | null: false       | ##active_hash##
 | shipping_date_id   | integer    | null: false       | ##active_hash##
+| category_id        | string     | null: false       | ##active_hash##
 
 ### Association
 - belongs_to :user
@@ -65,26 +65,26 @@ Things you may want to cover:
 
 
 ## sending destinationsテーブル 
-| Column        | Type       | Options     |
-| uder_id       | references | null: false |
-| prefecture_id | integer    | null: false | ##active_hash##
-| post_code     | string     | null: false |
-| city          | string     | null: false |
-| street        | string     | null: false |
-| building_name | string     | -           |
-| house_number  | string     | null: false |
-| phone_number  | string     | null: false |
+| Column        | Type       | Options           |
+| purchase      | references | foreign_key: true |
+| prefecture_id | integer    | null: false       | ##active_hash##
+| post_code     | string     | null: false       |
+| city          | string     | null: false       |
+| street        | string     | null: false       |
+| building_name | string     | -                 |
+| house_number  | string     | null: false       |
+| phone_number  | string     | null: false       |
 
 ### Association
 - belongs_to :purchase
 
 
 ## commentsテーブル 中間テーブル
-| Column     | Type       | Options     |
-| item_id    | references | null: false |
-| uder_id    | references | null: false |
-| comment    | text       | null: false |
-| created_at | timestamp  | null: false |
+| Column     | Type       | Options          |
+| item       | references | oreign_key: true |
+| user       | references | oreign_key: true |
+| comment    | text       | null: false      |
+| created_at | timestamp  | null: false      |
 
 ### Association
 - belongs_to :user

@@ -47,8 +47,7 @@ Things you may want to cover:
 
 ## Itemsテーブル
 | Column             | Type       | Options           |
-| status             | string     | null: false       |
-| item_name          | string     | null: false       |
+| name               | string     | null: false       |
 | description        | text       | null: false       |
 | user               | references | foreign_key: true |
 | price              | integer    | null: false       |

@@ -3,10 +3,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
   <div class="field">
     <%= f.label :nickname %> <em>(12 characters maximum)</em><br />
@@ -14,6 +10,11 @@
   </div> 
 
   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -24,6 +25,21 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+ <div class="field">
+    <%= f.label :kana_family_name %><br />
+    <%= f.password_field :kana_family_name, autocomplete: "new-kana-family-name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kana_first_name %><br />
+    <%= f.password_field :kana_first_name, autocomplete: "new-kana-first-name" %>
+  </div>
+
+ <div class="field">
+    <%= f.label :birth_date %><br />
+    <%= f.password_field :birth_date, autocomplete: "birth-date" %>
   </div>
 
   <div class="actions">
